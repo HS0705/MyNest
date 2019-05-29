@@ -1,0 +1,60 @@
+
+#submitBtn{
+  color: Blue;
+  text-align: center;
+  font-size: 11px;
+  margin: 4px 2px;
+  width:75px;
+}
+
+#map{
+      height: 750px;
+      
+      position: static; 
+    }
+html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+#show-rentals {
+        font-family: 'Roboto','sans-serif';
+        line-height: 50px;
+        padding-left: 10px;
+      }
+
+      #show-rentals i {
+        font-size: 20px;
+      }
+      #show-rentals {
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        height: 700px;
+        padding: 5px;
+        z-index: 5;
+        border: 1px solid #999;
+      }
+      h2 {
+        font-size: 18px;
+        margin: 0 0 5px 0;
+        color:green;
+      }
+      #places{
+        list-style-type: none;
+        margin: 0;
+        height: 700px;
+        /*width: 300px;*/
+        overflow-y: scroll;
+      }
+      li {
+        background-color: #f1f1f1;
+        padding: 10px;
+        color:blue;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      #more{
+        width: 30%;
+        margin: 5px 0 0 0;
+      }

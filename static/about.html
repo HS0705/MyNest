@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Easy Move</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet"
+          href="/static/css/style.css"
+    >
+</head>
+<body>
+    <div id='display'>
+        <!-- Details about how thw application works -->
+        <div>Welcome to MyNest app.This application is intended to help 
+           you decide what should be your next Nest.All you have to do is 
+           enter the city where you want to move in  and this app will find 
+           you the apartements in that city for a radiius of 500 meters and all the related information. 
+        </div>
+        <p> What all information is provided</p>
+        <div>Once you enter the city , autocomplete Google maps feature will suggest 
+            you the city names in USA, you will select the city and click  on search button.
+            The partment search will be completed and you will be able to see the list of apartments. At a time there will be 20 apartment results shown in the map and the results panel. When you click NEXT PAGE button you can see the next 20 apartments  and so on. 
+            If you want to see the related data for any particular apartment you
+            can click on the Information link next to the apartment image.
+            <p>Information</p>
+            <div>
+                This information page will help you get the Doctors, Shopping, 
+                Restaurants and Schools information for the particular apartment 
+                you selected.
+            </div>
+
+        <!-- Button to hide the application text details -->
+        <button type="button" id="homeBtn">Home Page</button>
+    </div>
+    <!-- Script tage includes the functionality to hide the application text 
+    details once the Top of the Page button is clicked. -->
+    <script>
+        /* Function to hide the application text details using Jquery hide() 
+            method */
+        $(document).ready(function() {
+            $('#homeBtn').click(function() {
+                location.href='/';
+            });
+        });
+    </script>
+
+</body>
+</html>

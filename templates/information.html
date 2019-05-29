@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Information Page{% endblock %}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+    </script>
+
+{% block content %}
+    <p> Hello you reached the  Information Page</p>
+    <p id="apartment-address">Information for {{ apartment_address }}</p>
+    <div class="container">
+        <ul class="nav nav-tabs" id="mytabs">
+          <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+          <li><a data-toggle="tab" href="#doctors">DOCTORS</a></li>
+          <li><a data-toggle="tab" href="#stores">STORES</a></li>
+          <li><a data-toggle="tab" href="#restaurants">RESTAURANTS</a></li>
+          <li><a data-toggle="tab" href="#schools">SCHOOLS</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <h3>HOME</h3>
+                <p>Click on the tabs to see the relevant ifnormation</p>
+            </div>
+            <div id="doctors" class="tab-pane fade">
+                <h3>DOCTORS</h3>
+                    <ul id="doctors-data">
+                        {% for doctor in doctors %}
+                            <li>Name: {{ doctor.name }} </li>
+                            <li>Rating: {{ doctor.rating }} </li>
+                            <li>URL:<a href ="{{ '%s'%doctor.url }}" 
+                                       target="_blank">
+                                        {{ doctor.url }}
+                                    </a>
+                                </li>
+                        {% endfor %}
+                    </ul>  
+            </div> 
+            <div id="stores" class="tab-pane fade">
+                <h3>STORES</h3>
+                    <ul id="stores-data">
+                        {% for store in stores %}
+                            <li>Name:  {{ store.name }}</li>
+                            <li>Rating: {{ store.rating }}</li>
+                            <li>URL:<a href="{{ '%s'%store.url }}"
+                                       target="_blank">
+                                        {{ store.url }}
+                                    </a>
+                            </li>
+                        {% endfor %}
+                    </ul>  
+            </div> 
+            <div id="restaurants" class="tab-pane fade">
+                <h3>RESTAURANTS</h3>
+                    <ul id="restaurants">
+                        {% for restaurant in restaurants %}
+                            <li>Name:  {{ restaurant.name }}</li>
+                            <li>Rating: {{ restaurant.rating }}</li>
+                            <li>URL:<a href="{{ '%s'%restaurant.url }}"
+                                       target="_blank">
+                                        {{ restaurant.url }}
+                                    </a>
+                            </li>
+                        {% endfor %}
+                    </ul>  
+            </div> 
+            <div id="schools" class="tab-pane fade">
+                <h3>SCHOOLS</h3>
+                    <ul id="schools-data">
+                        {% for school in schools %}
+                            <li>Name:  {{ school.name }}</li>
+                            <li>Rating: {{ school.rating }}</li>
+                            <li>URL:<a href="{{ '%s'%school.url }}"
+                                            target="_blank">
+                                        {{ school.url }}
+                                    </a>
+                            </li>
+                        {% endfor %}
+                    </ul>  
+            </div> 
+        </div>
+    </div>        
+
+{% endblock %}
