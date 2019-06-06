@@ -1,25 +1,20 @@
 {% extends 'base.html'%}
 {% block title %}Home Page{% endblock title %}
 {% block content %}
-    <div class="jumbotron text-center">
-        <h1>Welcome to MyNest </h1>
-        <p>A centralized application that will help you move to a new location</p> 
-        <form class="form-inline" method="POST">
-            <div class="input-group">
-                <input
-                    id="searchTextField"
-                    name="address"
-                    size="50" 
-                    placeholder="Please start typing the city name"
-                    type="text"
-                    required
+        <div class="jumbotron text-center">
+            <h1>Welcome to MyNest </h1>
+            <p>A centralized application that will help you move to a new location</p> 
+            <input
+                id="searchTextField"
+                name="address"
+                size="50" 
+                placeholder="Please start typing the city name"
+                type="text"
+                required
                 >
-            <div class="input-group-btn">
-                <input type="submit" value="SEARCH" id="submitBtn">
-            </div>
-            </div>
-        </form>
-    </div>
+            <input type="submit" value="SEARCH" id="submitBtn">
+            
+        </div>
 
     <script>
         "use strict";
