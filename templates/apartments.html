@@ -5,13 +5,15 @@
 {% block content %}
     <span id="user-address"><b>City: {{ session['address'] }} "</b> </span>
     <div class="container-fluid">
-        <div class="col-lg-8" id="map"></div>
-        <div class="col-lg-4" id="results">
-            <ul id="places">
-            </ul>
-            <button id="more">NEXT PAGE </button>  
+        <div class="row">
+            <div class="col-lg-8" id="map"></div>
+            <div class="col-lg-4" id="results">
+                <ul id="places">
+                </ul>
+                <button id="more">NEXT PAGE </button>  
+            </div>
+           </div>
         </div>
-       </div>
     </div>    
     <script type="text/javascript" src="/static/js/rental.js"></script>
     <script 

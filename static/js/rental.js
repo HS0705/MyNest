@@ -105,23 +105,45 @@ function geocodeAddress(geocoder, resultsMap) {
                                             infoWindow.close();
                                         });
               /*Create an image element, img  to display apartment photo*/
-              let img = document.createElement("img");
-              img.setAttribute('src', photoUrl);
-              document.getElementById('places').appendChild(img); 
+              let aptCard=document.createElement('div');
+              aptCard.className='card';
+              // let aptHeader=document.createElement('div');
+              // aptHeader.className='card-header';
+              let img = document.createElement('img');
+              img.className='card-img-top';
+              img.setAttribute('src', photoUrl);  
+              let aptBody=document.createElement('div');
+              aptBody.className='card-body';
+              
 
-              /*Create unordered list and add the apartment names,images and 
-                Information link to the apartmentsList*/
-                let li = document.createElement('li');
-                li.textContent = place.name; 
-                let text = 'Information';
-                /*Create a hyperlink that will provide related information 
-                  for the apartment selected*/
-                let a=document.createElement('a');
-                a.href=`/information/${place.formatted_address}`;
-                a.textContent=(text);
-                apartmentsList.appendChild(li);
-                apartmentsList.appendChild(img);
-                apartmentsList.appendChild(a);
+              /*Create Apartment Card and add the apartment names to
+                the apartmentsList*/
+
+                let cardTitle = document.createElement('h5');
+                cardTitle.className='card-title';
+                cardTitle.textContent = place.name; 
+                let cardText=document.createElement('p');
+                cardText.className='card-text';
+                cardText.textContent=`${place.name} has ${place.rating}`;
+                //let aptUrl= document.createElement('a');
+
+                // img.onclick= function () {
+                //   window.location.href=`/information/${place.formatted_address}`;
+                // }
+                let getInfo=document.createElement('a');
+                getInfo.className='btn btn-primary';
+                getInfo.innerHTML='Get Info';
+                getInfo.href=`/information/${place.formatted_address}`;
+                let favBtn=document.createElement('Button');
+                favBtn.innerHTML='Favorites';
+                aptBody.appendChild(cardTitle);
+                aptBody.appendChild(cardText);
+                aptBody.appendChild(getInfo);
+                aptBody.appendChild(favBtn);
+                aptCard.appendChild(img);
+                aptCard.appendChild(aptBody);
+                apartmentsList.appendChild(aptCard);
+
                         
               bounds.extend(place.geometry.location);
             }
