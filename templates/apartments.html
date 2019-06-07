@@ -3,7 +3,7 @@
 {% block title %}Apartments Page{% endblock title %}
 
 {% block content %}
-    <span id="user-address"><b>City: {{ session['address'] }} "</b> </span>
+    <!-- <span id="user-address"><b>City: {{ address }} "</b> </span> -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8" id="map"></div>
@@ -15,6 +15,9 @@
            </div>
         </div>
     </div>    
+    <script>
+        let address="{{ address }}";
+    </script>    
     <script type="text/javascript" src="/static/js/rental.js"></script>
     <script 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8fKMRnLas5SNsmEzd4sm8YL6TOLLffI4

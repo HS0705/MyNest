@@ -4,16 +4,18 @@
         <div class="jumbotron text-center">
             <h1>Welcome to MyNest </h1>
             <p>A centralized application that will help you move to a new location</p> 
-            <input
-                id="searchTextField"
-                name="address"
-                size="50" 
-                placeholder="Please start typing the city name"
-                type="text"
-                required
-                >
-            <input type="submit" value="SEARCH" id="submitBtn">
-            
+            <form action="/search">
+                <input
+                    id="searchTextField"
+                    name="address"
+                    size="50" 
+                    placeholder="Please start typing the city name"
+                    type="text"
+                    required
+                    >
+                <input type="submit" value="SEARCH" id="submitBtn">
+            </form>
+                
         </div>
 
     <script>
@@ -32,10 +34,6 @@
                     });
                 autoComplete.setFields(['name']);
             });
-
-            $('#submitBtn').on('click',function (){
-                window.onload("/search");
-            })
         }); 
 </script> 
 

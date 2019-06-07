@@ -8,26 +8,22 @@ function initMap() {
           });
   let geocoder = new google.maps.Geocoder();
  
-            geocodeAddress(geocoder, map);
-          }
+  geocodeAddress(geocoder, map);
+}
 /* geocodeAddress function to get the latitude and longitude of the given city,state,usa*/
 function geocodeAddress(geocoder, resultsMap) {
 
   /*Pass the value of the input box'user-address' to the address variable*/
-
-  let address= document.getElementById('user-address').innerHTML;
-
+  // 
   /*Geocode method and a function that takes in results and status as arguments */
 
   geocoder.geocode({'address': address}, function(results, status) {
   /*Check the status*/  
-
   if (status === 'OK') {
     /* Status ='OK', set the map center with the geometry.location 
        returned by geocoder method */
 
     resultsMap.setCenter(results[0].geometry.location);
-
     /* Setup the marker variable*/
     marker = new google.maps.Marker({
             map: resultsMap,
@@ -107,47 +103,46 @@ function geocodeAddress(geocoder, resultsMap) {
               /*Create an image element, img  to display apartment photo*/
               let aptCard=document.createElement('div');
               aptCard.className='card';
-              // let aptHeader=document.createElement('div');
-              // aptHeader.className='card-header';
               let img = document.createElement('img');
               img.className='card-img-top';
               img.setAttribute('src', photoUrl);  
               let aptBody=document.createElement('div');
               aptBody.className='card-body';
-              
-
-              /*Create Apartment Card and add the apartment names to
-                the apartmentsList*/
-
-                let cardTitle = document.createElement('h5');
-                cardTitle.className='card-title';
-                cardTitle.textContent = place.name; 
-                let cardText=document.createElement('p');
-                cardText.className='card-text';
-                cardText.textContent=`${place.name} has ${place.rating}`;
-                //let aptUrl= document.createElement('a');
-
-                // img.onclick= function () {
-                //   window.location.href=`/information/${place.formatted_address}`;
-                // }
-                let getInfo=document.createElement('a');
-                getInfo.className='btn btn-primary';
-                getInfo.innerHTML='Get Info';
-                getInfo.href=`/information/${place.formatted_address}`;
-                let favBtn=document.createElement('Button');
-                favBtn.innerHTML='Favorites';
-                aptBody.appendChild(cardTitle);
-                aptBody.appendChild(cardText);
-                aptBody.appendChild(getInfo);
-                aptBody.appendChild(favBtn);
-                aptCard.appendChild(img);
-                aptCard.appendChild(aptBody);
-                apartmentsList.appendChild(aptCard);
-
-                        
+              let cardTitle = document.createElement('h5');
+              cardTitle.className='card-title';
+              cardTitle.textContent = place.name; 
+              let cardText=document.createElement('p');
+              cardText.className='card-text';
+              cardText.textContent=`${place.name} has ${place.rating}`;
+              let getInfo=document.createElement('a');
+              getInfo.className='btn btn-primary';
+              getInfo.innerHTML='Get Info';
+              getInfo.href=`/information/${place.formatted_address}`;
+              let favBtn=document.createElement('Button');
+              favBtn.className="fav-btn";
+              favBtn.innerHTML='Favorites';
+              favBtn.dataset.placeId = place.place_id;
+              aptBody.appendChild(cardTitle);
+              aptBody.appendChild(cardText);
+              aptBody.appendChild(getInfo);
+              aptBody.appendChild(favBtn);
+              aptCard.appendChild(img);
+              aptCard.appendChild(aptBody);
+              apartmentsList.appendChild(aptCard);
+              favBtn.addEventListener('click',saveFav);
               bounds.extend(place.geometry.location);
             }
             map.fitBounds(bounds);
             };
 });
 } 
+
+function saveFav(evt) {
+  let aptId=evt.target.dataset.placeId;
+  alert(aptId);
+//   $.ajax({
+//     url:'postgresql:///nest',
+//     type:'POST',
+//     data:aptId  })
+//   alert(apartmentId);
+ }

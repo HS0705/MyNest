@@ -1,8 +1,9 @@
-from flask import Flask, redirect, request, render_template, session, json
+from flask import Flask, redirect, request, render_template, session, json, flash
 from jinja2 import StrictUndefined
 from yelp_api import (get_doctor_info,get_restaurant_info,get_store_info,
                         get_school_info)
 import os
+from model import connect_to_db, db, User,Favorites
 
 app = Flask(__name__)
 # app.jinja_env.undefined = StrictUndefined
@@ -11,21 +12,81 @@ app = Flask(__name__)
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = os.environ.get('app_key')
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/')
 def home_page():
     """Renders Homepage"""
-    
-    if request.method == 'POST':
-        session['address'] = request.form['address']
-        return redirect('/search')
+
     return render_template("homepage.html")
+
+@app.route('/register', methods=['GET'])
+def register_form():
+    """Show form for user signup."""
+
+    return render_template("register_form.html")
+
+
+@app.route('/register', methods=['POST'])
+def register_process():
+    """Process registration."""
+
+    # Get form variables
+    email = request.form["email"]
+    password = request.form["password"]
+
+    new_user = User(email=email, password=password)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    flash(f"User {email} added.")
+    return redirect("/")
+
+
+@app.route('/login', methods=['GET'])
+def login_form():
+    """Show login form."""
+
+    return render_template("login_form.html")
+
+
+@app.route('/login', methods=['POST'])
+def login_process():
+    """Process login."""
+
+    # Get form variables
+    email = request.form["email"]
+    password = request.form["password"]
+
+    user = User.query.filter_by(email=email).first()
+
+    if not user:
+        flash("No such user")
+        return redirect("/login")
+
+    if user.password != password:
+        flash("Incorrect password")
+        return redirect("/login")
+
+    session["user_id"] = user.user_id
+
+    flash("Logged in")
+    return redirect('/')
+
+@app.route('/logout')
+def logout():
+    """Log out."""
+
+    del session["user_id"]
+    flash("Logged Out.")
+    return redirect("/")
 
 
 @app.route('/search')
 def click():
     """Renders apartments page """
-
-    return render_template("apartments.html")
+    address=request.args['address']
+    return render_template("apartments.html",
+        address=address)
 
 
 @app.route('/information/<formatted_address>')
@@ -52,5 +113,8 @@ if __name__ == "__main__":
     # point that we invoke the DebugToolbarExtension
 
     app.debug = True
+
+    connect_to_db(app)
+
 
     app.run(host="0.0.0.0")
