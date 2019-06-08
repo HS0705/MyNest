@@ -118,18 +118,23 @@ function geocodeAddress(geocoder, resultsMap) {
               getInfo.className='btn btn-primary';
               getInfo.innerHTML='Get Info';
               getInfo.href=`/information/${place.formatted_address}`;
-              let favBtn=document.createElement('Button');
-              favBtn.className="fav-btn";
-              favBtn.innerHTML='Favorites';
-              favBtn.dataset.placeId = place.place_id;
+              
+
               aptBody.appendChild(cardTitle);
               aptBody.appendChild(cardText);
               aptBody.appendChild(getInfo);
+              if (userID){
+                let favBtn=document.createElement('Button');
+              favBtn.className="fav-btn";
+              favBtn.innerHTML='Favorite';
+              favBtn.dataset.placeId = place.place_id;
               aptBody.appendChild(favBtn);
+              favBtn.addEventListener('click',saveFav);
+              }
               aptCard.appendChild(img);
               aptCard.appendChild(aptBody);
               apartmentsList.appendChild(aptCard);
-              favBtn.addEventListener('click',saveFav);
+              
               bounds.extend(place.geometry.location);
             }
             map.fitBounds(bounds);
@@ -137,12 +142,21 @@ function geocodeAddress(geocoder, resultsMap) {
 });
 } 
 
+
 function saveFav(evt) {
-  let aptId=evt.target.dataset.placeId;
-  alert(aptId);
-//   $.ajax({
-//     url:'postgresql:///nest',
-//     type:'POST',
-//     data:aptId  })
-//   alert(apartmentId);
+  //button=document.getElementsByClassName('favBtn');
+  // button[0].innerHTML="Add as Favorite";
+  let data=evt.target.dataset.placeId;
+  alert(data);
+  url='/favorite';
+  fetch(url, {
+  method: 'POST', 
+  mode:'cors',
+  cache:'no-cache',
+  credentials:'same-origin',// or 'PUT'
+  body: JSON.stringify(data), // data can be `string` or {object}!
+  headers:{
+    'Content-Type': 'application/json'
+  }
+  })
  }

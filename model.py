@@ -17,10 +17,12 @@ class Favorites(db.Model):
 
     __tablename__="favorites"
 
-    apt_id=db.Column(db.String(200),
-                        nullable=False,
+    id = db.Column(db.Integer,
+                        autoincrement=True,
                         primary_key=True)
-    user_id=db.Column(db.Integer,db.ForeignKey('users.user_id'))
+    apt_id=db.Column(db.String(200),
+                        nullable=False)
+    user_id=db.Column(db.Integer,db.ForeignKey('users.user_id'),nullable=False)
 
     user = db.relationship("User",
                            backref=db.backref("favorites",

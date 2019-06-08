@@ -84,10 +84,27 @@ def logout():
 @app.route('/search')
 def click():
     """Renders apartments page """
+
     address=request.args['address']
+
     return render_template("apartments.html",
         address=address)
 
+@app.route('/favorite', methods=['POST'])
+def apt_data():
+    """posting the  apartment id marked as favorite to favorites table in  database"""
+
+    data=request.get_json()
+    all_favorites = Favorites.query.filter_by(user_id=session["user_id"]).all()
+    # import pdb; pdb.set_trace()
+    for a in all_favorites:
+        if a.apt_id == data:
+            return "Already marked as Favorite"
+
+    apt_favorite=Favorites(apt_id=data,user_id=session["user_id"])
+    db.session.add(apt_favorite)
+    db.session.commit()
+    return 'OK'
 
 @app.route('/information/<formatted_address>')
 

@@ -17,6 +17,11 @@
     </div>    
     <script>
         let address="{{ address }}";
+        let userID=false;
+        {% if "user_id" in session %}
+            userID=true;
+        {% endif %}
+        console.log(userID);
     </script>    
     <script type="text/javascript" src="/static/js/rental.js"></script>
     <script 
