@@ -1,3 +1,4 @@
+const apartment=apartmentInfo;
 const doctors=doctorInfo;
 const stores=storesInfo;
 const schools=schoolsInfo;
@@ -5,6 +6,13 @@ const restaurants=restaurantsInfo;
 class App extends React.Component{
  
   render() {
+    const apartmentItems = apartment.map((a) =>
+      <React.Fragment>
+      <li>Name: {a.name}</li>
+      <li>Rating: {a.rating}</li>
+      <li>Url: {a.url}</li>
+     </React.Fragment> 
+      );
     const doctorItems = doctors.map((d) =>
       <React.Fragment>
       <li>Name: {d.name}</li>
@@ -38,7 +46,7 @@ class App extends React.Component{
       <h1>Information </h1>
       <MyTabs>
       <div label="Home">
-        <p>Sample Home Text</p>
+        {apartmentItems}
       </div>
       <div label="Doctors"> 
              { doctorItems }

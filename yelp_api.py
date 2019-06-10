@@ -6,6 +6,22 @@ url = 'https://api.yelp.com/v3/businesses/search'
 api_key = os.environ.get('yelp_api_key')
 headers = {'Authorization': 'Bearer %s' % api_key}
 
+def get_apartment_info(formatted_address):
+    """Renders apartment  information page for the selected apartment
+        (formatted_address)"""
+    apartment_address=formatted_address    
+    params ={'term':'apartments',
+              'location':apartment_address,
+              'radius':100,
+              'limit':5,
+              }
+ 
+    api_req = requests.get(url, params=params, headers=headers)
+    api_data = json.loads(api_req.text)
+    apartment = api_data["businesses"]   
+    return apartment
+
+
 def get_doctor_info(formatted_address):
     """Renders doctor information page for the selected apartment
         (formatted_address)"""

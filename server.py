@@ -1,7 +1,7 @@
 from flask import Flask, redirect, request, render_template, session, json, flash
 from jinja2 import StrictUndefined
-from yelp_api import (get_doctor_info,get_restaurant_info,get_store_info,
-                        get_school_info)
+from yelp_api import (get_apartment_info,get_doctor_info,get_restaurant_info,
+                        get_store_info,get_school_info)
 import os
 from model import connect_to_db, db, User,Favorites
 
@@ -84,11 +84,17 @@ def logout():
 @app.route('/search')
 def click():
     """Renders apartments page """
-
     address=request.args['address']
+    all_favorites = Favorites.query.filter_by(user_id=session["user_id"]).all()
+    # import pdb; pdb.set_trace()
+    list_apt=[]
+    for a in all_favorites:
+        list_apt.append(a.apt_id)
+    
 
     return render_template("apartments.html",
-        address=address)
+        address=address,
+        list_apt=list_apt)
 
 @app.route('/favorite', methods=['POST'])
 def apt_data():
@@ -99,18 +105,19 @@ def apt_data():
     # import pdb; pdb.set_trace()
     for a in all_favorites:
         if a.apt_id == data:
-            return "Already marked as Favorite"
-
+            return "Already Exist"
     apt_favorite=Favorites(apt_id=data,user_id=session["user_id"])
     db.session.add(apt_favorite)
     db.session.commit()
     return 'OK'
 
+
+
 @app.route('/information/<formatted_address>')
 
 def get_information(formatted_address):
     """Renders information page  for the selected apartmemt"""
-
+    apartment=get_apartment_info(formatted_address)
     doctors = get_doctor_info(formatted_address)
     restaurants = get_restaurant_info(formatted_address)
     stores = get_store_info(formatted_address)
@@ -118,6 +125,7 @@ def get_information(formatted_address):
     
     return render_template("information.html",
                                 apartment_address=formatted_address,
+                                apartments=apartment,
                                 doctors=doctors,
                                 restaurants=restaurants,
                                 stores=stores,

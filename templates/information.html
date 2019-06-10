@@ -13,7 +13,7 @@
     <p id="apartment-address">Detailed Information for {{ apartment_address }}</p>
     <div id="root"></div>
     <script>
-
+        let apartmentInfo={{ apartments | tojson | safe }};
         let doctorInfo={{ doctors | tojson | safe }};
         let storesInfo={{ stores | tojson | safe }};
         let restaurantsInfo={{ restaurants| tojson | safe }};

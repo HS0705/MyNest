@@ -113,23 +113,27 @@ function geocodeAddress(geocoder, resultsMap) {
               cardTitle.textContent = place.name; 
               let cardText=document.createElement('p');
               cardText.className='card-text';
-              cardText.textContent=`${place.name} has ${place.rating}`;
+              cardText.textContent=`${place.name} has ${place.rating} rating. `;
               let getInfo=document.createElement('a');
               getInfo.className='btn btn-primary';
               getInfo.innerHTML='Get Info';
               getInfo.href=`/information/${place.formatted_address}`;
               
-
               aptBody.appendChild(cardTitle);
               aptBody.appendChild(cardText);
               aptBody.appendChild(getInfo);
               if (userID){
                 let favBtn=document.createElement('Button');
-              favBtn.className="fav-btn";
-              favBtn.innerHTML='Favorite';
-              favBtn.dataset.placeId = place.place_id;
-              aptBody.appendChild(favBtn);
-              favBtn.addEventListener('click',saveFav);
+                favBtn.className="fav-btn";
+                //favBtn.className="color-btn";
+                favBtn.innerHTML='Favorite';
+                favBtn.dataset.placeId = place.place_id;
+                if (listAptIDFav.includes(place.place_id))
+                  {
+                    $(favBtn).addClass('color-btn');
+                  }
+                aptBody.appendChild(favBtn);
+                favBtn.addEventListener('click',saveFav);
               }
               aptCard.appendChild(img);
               aptCard.appendChild(aptBody);
@@ -142,12 +146,11 @@ function geocodeAddress(geocoder, resultsMap) {
 });
 } 
 
-
 function saveFav(evt) {
-  //button=document.getElementsByClassName('favBtn');
-  // button[0].innerHTML="Add as Favorite";
+  btn=evt.target;
   let data=evt.target.dataset.placeId;
-  alert(data);
+  //console.log(data);
+  $(btn).addClass('color-btn');
   url='/favorite';
   fetch(url, {
   method: 'POST', 
@@ -159,4 +162,8 @@ function saveFav(evt) {
     'Content-Type': 'application/json'
   }
   })
+
+ //  $('favBtn').click(function(){
+ //    $(this).css("background","blue");
+ //  })
  }
