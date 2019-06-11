@@ -14,6 +14,7 @@ def get_apartment_info(formatted_address):
               'location':apartment_address,
               'radius':100,
               'limit':5,
+              'sort_by':'rating'
               }
  
     api_req = requests.get(url, params=params, headers=headers)

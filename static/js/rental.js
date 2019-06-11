@@ -122,19 +122,16 @@ function geocodeAddress(geocoder, resultsMap) {
               aptBody.appendChild(cardTitle);
               aptBody.appendChild(cardText);
               aptBody.appendChild(getInfo);
-              if (userID){
-                let favBtn=document.createElement('Button');
-                favBtn.className="fav-btn";
-                //favBtn.className="color-btn";
-                favBtn.innerHTML='Favorite';
-                favBtn.dataset.placeId = place.place_id;
-                if (listAptIDFav.includes(place.place_id))
+              let favBtn=document.createElement('Button');
+              favBtn.className="fav-btn";
+              favBtn.innerHTML='Favorite';
+              favBtn.dataset.placeId = place.place_id;
+              if (listAptIDFav.includes(place.place_id))
                   {
                     $(favBtn).addClass('color-btn');
                   }
-                aptBody.appendChild(favBtn);
-                favBtn.addEventListener('click',saveFav);
-              }
+              aptBody.appendChild(favBtn);
+              favBtn.addEventListener('click',saveFav);
               aptCard.appendChild(img);
               aptCard.appendChild(aptBody);
               apartmentsList.appendChild(aptCard);
@@ -162,8 +159,4 @@ function saveFav(evt) {
     'Content-Type': 'application/json'
   }
   })
-
- //  $('favBtn').click(function(){
- //    $(this).css("background","blue");
- //  })
  }

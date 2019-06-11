@@ -8,37 +8,47 @@ class App extends React.Component{
   render() {
     const apartmentItems = apartment.map((a) =>
       <React.Fragment>
-      <li>Name: {a.name}</li>
-      <li>Rating: {a.rating}</li>
-      <li>Url: {a.url}</li>
+      <div className="apt">
+        <h3> {a.name}</h3>
+        <h5>Rating: {a.rating}</h5>
+        <a href={a.url} target="_blank">Details</a>
+      </div>
      </React.Fragment> 
       );
     const doctorItems = doctors.map((d) =>
       <React.Fragment>
-      <li>Name: {d.name}</li>
-      <li>Rating: {d.rating}</li>
-      <li>Url: {d.url}</li>
+      <div className="doct">
+        <h3> {d.name}</h3>
+        <h5>Rating: {d.rating}</h5>
+        <a href={d.url} target="_blank">Details</a>
+      </div>
      </React.Fragment> 
       );
     const storeItems = stores.map((s) =>
     <React.Fragment>
-      <li>Name: {s.name}</li>
-      <li>Rating: {s.rating}</li>
-      <li>Url: {s.url}</li>
+      <div className="retail">
+        <h3> {s.name}</h3>
+        <h5>Rating: {s.rating}</h5>
+        <a href={s.url} target="_blank">Details</a>
+      </div>
      </React.Fragment> 
       );
     const restaurantItems = restaurants.map((r) => 
       <React.Fragment>
-      <li>Name: {r.name}</li>
-      <li>Rating: {r.rating}</li>
-      <li>Url: {r.url}</li>
+      <div className="food">
+        <h3> {r.name}</h3>
+        <h5>Rating: {r.rating}</h5>
+        <a href={r.url} target="_blank">Details</a>
+      </div>
      </React.Fragment> 
       );
     const schoolsItems = schools.map((sc) =>
      <React.Fragment>
-      <li>Name: {sc.name}</li>
-      <li>Rating: {sc.rating}</li>
-      <li>Url: {sc.url}</li>
+      <div className="edu">
+        <h3> {sc.name}</h3>
+        <h5>Rating: {sc.rating}</h5>
+        <a href={sc.url} target="_blank">Details</a>
+      </div>
      </React.Fragment> 
       );
   return (

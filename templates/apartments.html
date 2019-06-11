@@ -17,10 +17,6 @@
     </div>    
     <script>
         let address="{{ address }}";
-        let userID=false;
-        {% if "user_id" in session %}
-            userID=true;
-        {% endif %}
         let listAptIDFav = {{ list_apt | tojson | safe }};
     </script>    
     <script type="text/javascript" src="/static/js/rental.js"></script>
