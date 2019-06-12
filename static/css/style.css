@@ -3,7 +3,6 @@
   color: white !important;
   text-align: center;
   font-size: 12px;
-  /*margin: 4px 2px;*/
   width:100px;
 }
 
@@ -82,7 +81,9 @@ html, body {
 h1 {
     color:white;
   }
-
+.display{
+  color:#CC701F;
+}
 #home-text{
   color:white;
 }
@@ -106,7 +107,6 @@ h1 {
 #places{
         margin: 10;
         height: 700px;
-        /*width: 300px;*/
         overflow-y: scroll;
         padding-left: 10px;
 
@@ -122,9 +122,6 @@ h1 {
   color:blue;
 }
 
-#favBtn{
-
-}
 .card{
   width: 25rem;
   display:inline-block;

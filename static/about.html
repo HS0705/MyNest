@@ -7,6 +7,15 @@
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"
     ></script>
+    <script async defer crossorigin src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css"
+    >
+    <link rel="stylesheet" 
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+          crossorigin="anonymous"
+    >
     <link rel="stylesheet"
           href="/static/css/style.css"
     >
@@ -14,32 +23,27 @@
 <body>
     <div id='display'>
         <!-- Details about how thw application works -->
-        <div>Welcome to MyNest app.This application is intended to help 
-           you decide what should be your next Nest.All you have to do is 
-           enter the city where you want to move in  and this app will find 
-           you the apartements in that city for a radiius of 500 meters and all the related information. 
-        </div>
-        <p> What all information is provided</p>
-        <div>Once you enter the city , autocomplete Google maps feature will suggest 
-            you the city names in USA, you will select the city and click  on search button.
-            The partment search will be completed and you will be able to see the list of apartments. At a time there will be 20 apartment results shown in the map and the results panel. When you click NEXT PAGE button you can see the next 20 apartments  and so on. 
-            If you want to see the related data for any particular apartment you
-            can click on the Information link next to the apartment image.
-            <p>Information</p>
-            <div>
-                This information page will help you get the Doctors, Shopping, 
-                Restaurants and Schools information for the particular apartment 
-                you selected.
+        <h3 class="display">Welcome to My Nest application</h3>
+            <p class="display">About</p>
+            <div>This application is intended to help you decide what should be your next Nest.
+                All you have to do is enter the city where you want to move in and this app will find you the apartments in that city and all the related information. The data is restricted only for cities in USA. 
             </div>
-
-        <!-- Button to hide the application text details -->
-        <button type="button" id="homeBtn">Home Page</button>
+        <p class="display"> How to use the application</p>
+        <ul class="list-styled">
+            <li> Register as new user</li>
+            <li>Log in with user credentials</li>
+            <li>Start typing the city name and once options are shown choose the city name click on Search button</li>
+            <li>Apartments are displayed on map as well as in the list panel. Scroll the list panel to see all the apartments</li>
+            <li>Click on Next page button to see more results for that city. Once all the results have been populated the Next page button is disabled</li>
+            <li>Mark the apartment  as favorite by clicking on Save button. Apartment Id marked as favorite are saved on the database</li>
+            <li>To get related information for any apartment click on the Get Info button</li>
+            <li>Information page has tabs that shows the respective data(Apartments, Doctors, Shopping, Restaurants and Schools)</li>
+            <li>Details button shows the Yelp page for that business</li>
+        </ul>
+        <button type="button" id="homeBtn" class="btn btn-primary">Home Page</button>
     </div>
-    <!-- Script tage includes the functionality to hide the application text 
-    details once the Top of the Page button is clicked. -->
     <script>
-        /* Function to hide the application text details using Jquery hide() 
-            method */
+        /* Get back tot he Home Page */
         $(document).ready(function() {
             $('#homeBtn').click(function() {
                 location.href='/';
