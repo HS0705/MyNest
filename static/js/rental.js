@@ -115,7 +115,7 @@ function geocodeAddress(geocoder, resultsMap) {
               cardText.className='card-text';
               cardText.textContent=`${place.name} has ${place.rating} rating. `;
               let getInfo=document.createElement('a');
-              getInfo.className='btn btn-primary';
+              getInfo.className='btn btn-outline-primary';
               getInfo.innerHTML='Get Info';
               getInfo.href=`/information/${place.formatted_address}`;
               
@@ -123,12 +123,13 @@ function geocodeAddress(geocoder, resultsMap) {
               aptBody.appendChild(cardText);
               aptBody.appendChild(getInfo);
               let favBtn=document.createElement('Button');
-              favBtn.className="fav-btn";
-              favBtn.innerHTML='Favorite';
+              favBtn.className="btn btn-outline-primary";
+              favBtn.innerHTML='Save';
               favBtn.dataset.placeId = place.place_id;
               if (listAptIDFav.includes(place.place_id))
                   {
-                    $(favBtn).addClass('color-btn');
+                    $(favBtn).addClass('btn btn-outline-success');
+                    $(favBtn).html('Favorite');
                   }
               aptBody.appendChild(favBtn);
               favBtn.addEventListener('click',saveFav);
@@ -147,14 +148,15 @@ function saveFav(evt) {
   btn=evt.target;
   let data=evt.target.dataset.placeId;
   //console.log(data);
-  $(btn).addClass('color-btn');
+  $(btn).addClass('btn btn-outline-success');
+  $(btn).html('Favorite');
   url='/favorite';
   fetch(url, {
   method: 'POST', 
   mode:'cors',
   cache:'no-cache',
   credentials:'same-origin',// or 'PUT'
-  body: JSON.stringify(data), // data can be `string` or {object}!
+  body: JSON.stringify(data), // dataseta can be `string` or {object}!
   headers:{
     'Content-Type': 'application/json'
   }

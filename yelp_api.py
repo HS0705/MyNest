@@ -14,7 +14,7 @@ def get_apartment_info(formatted_address):
               'location':apartment_address,
               'radius':100,
               'limit':5,
-              'sort_by':'rating'
+              'sort_by':'distance'
               }
  
     api_req = requests.get(url, params=params, headers=headers)
@@ -29,9 +29,9 @@ def get_doctor_info(formatted_address):
     apartment_address=formatted_address    
     params ={'term':'doctors',
               'location':apartment_address,
-              'radius':500,
+              'radius':1000,
               'limit':10,
-              'sort_by':'rating'}
+              'sort_by':'distance'}
  
     api_req = requests.get(url, params=params, headers=headers)
     api_data = json.loads(api_req.text)
@@ -45,9 +45,9 @@ def get_restaurant_info(formatted_address):
     apartment_address=formatted_address    
     params = {'term':'restaurants',
               'location':apartment_address,
-              'radius':500,
+              'radius':1000,
               'limit':10,
-              'sort_by':'rating'}
+              'sort_by':'distance'}
  
     api_req = requests.get(url, params=params, headers=headers)
  
@@ -62,9 +62,9 @@ def get_store_info(formatted_address):
     apartment_address=formatted_address
     params = {'term':'shopping',
               'location':apartment_address,
-              'radius':500,
+              'radius':1000,
               'limit':10,
-              'sort_by':'rating'}
+              'sort_by':'distance'}
  
     api_req = requests.get(url, params=params, headers=headers)
  
@@ -80,9 +80,8 @@ def get_school_info(formatted_address):
     apartment_address=formatted_address    
     params ={'term':'schools',
               'location':apartment_address,
-              'radius':500,
-              'limit':10,
-              'sort_by':'rating',
+              'radius':1000,
+              'sort_by':'distance',
               'categories':'elementary'}
  
     api_req = requests.get(url, params=params, headers=headers)

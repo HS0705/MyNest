@@ -1,10 +1,10 @@
 
-#submitBtn{
-  color: Blue;
+.btn btn-primary{
+  color: white !important;
   text-align: center;
-  font-size: 11px;
-  margin: 4px 2px;
-  width:75px;
+  font-size: 12px;
+  /*margin: 4px 2px;*/
+  width:100px;
 }
 
 #map{
@@ -14,7 +14,7 @@
     }
 html, body {
         height: 100%;
-        background-image: url("/static/images/apartments.jpg");
+        /*background-color:#66631F*/;
         background-size: cover;
         padding-top: 20%; 
         margin: 0;
@@ -22,12 +22,12 @@ html, body {
       }
 
 .jumbotron {
-  /*background-image: url("/static/images/apartments.jpg");*/
-  /*background-size: cover;*/
-  /*padding-top: 20%; 
+  background-image: url("/static/images/city.jpg");
+  background-size: cover;
+  padding-top: 20%; 
   padding-bottom: 20%;
   -webkit-background-size: cover;
-  -moz-background-size: cover;*/
+  -moz-background-size: cover;
   /*-o-background-size: cover;*/
 }
   .user_card {
@@ -35,7 +35,7 @@ html, body {
       width: 350px;
       margin-top: auto;
       margin-bottom: auto;
-      background: #E6B515;
+      background: #CC701F;
       position: relative;
       display: flex;
       justify-content: center;
@@ -79,33 +79,60 @@ html, body {
     .login_container {
       padding: 0 2rem;
     }  
-h2 {
-    font-size: 18px;
-    margin: 0 0 5px 0;
-    color:green;
+h1 {
+    color:white;
   }
+
+#home-text{
+  color:white;
+}
+
+.col-lg-5{
+  border-style: solid;
+  border-width: thin;
+  border-color: #CC701F;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.col-lg-7{
+  border-width: thin;
+  border-color: #CC701F;
+  border-top-style: solid;
+  border-left-style: solid;
+  border-bottom-style:solid;
+}
+
 #places{
-        list-style-type: none;
-        margin: 0;
+        margin: 10;
         height: 700px;
         /*width: 300px;*/
         overflow-y: scroll;
-      }
-li {
-    background-color: #f1f1f1;
-    padding: 10px;
-    color:blue;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+        padding-left: 10px;
+
       }
 #more{
-      width: 30%;
+      width: 100%;
       margin: 5px 0 0 0;
       }
 .fav-btn{
-      background: coral;
+      color: green;
 }
 .color-btn {
-  background: green;
+  color:blue;
+}
+
+#favBtn{
+
+}
+.card{
+  width: 25rem;
+  display:inline-block;
+  margin:20px;
+}
+
+.card-header{
+  background-color:#CC701F;
+  color:white;
+  font-weight: 200;
 }
