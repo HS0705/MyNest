@@ -3,7 +3,6 @@
 {% block title %}Apartments Page{% endblock title %}
 
 {% block content %}
-    <!-- <span id="user-address"><b>City: {{ address }} "</b> </span> -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-7" id="map"></div>
@@ -15,6 +14,8 @@
            </div>
         </div>
     </div>    
+    <!-- Script tag to get data the search address and list of apartment favorites
+         from the server and use it in HTML elements -->
     <script>
         let address="{{ address }}";
         let listAptIDFav = {{ list_apt | tojson | safe }};

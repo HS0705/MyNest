@@ -1,129 +1,140 @@
-
+/* CSS for all the buttons in the application */
 .btn btn-primary{
-  color: white !important;
-  text-align: center;
-  font-size: 12px;
-  width:100px;
-}
+                  color: white !important;
+                  text-align: center;
+                  font-size: 12px;
+                  width:100px;
+                }
 
+/*  Map div */
 #map{
-      height: 750px;
-      
+      height: 750px;      
       position: static; 
     }
-html, body {
-        height: 100%;
-        /*background-color:#66631F*/;
-        background-size: cover;
-        padding-top: 20%; 
-        margin: 0;
-        padding: 0;
-      }
 
+/* For entire application*/
+html, body {
+            height: 100%;
+            background-size: cover;
+            padding-top: 20%; 
+            margin: 0;
+            padding: 0;
+           }
+
+/*Bootstrap component for homepage */
 .jumbotron {
-  background-image: url("/static/images/image_2.jpg");
-  background-size: cover;
-  padding-top: 5%; 
-  padding-bottom: 35%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  /*-o-background-size: cover;*/
-}
+            background-image: url("/static/images/image_2.jpg");
+            background-size: cover;
+            padding-top: 5%; 
+            padding-bottom: 35%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+          }
+
+/*Login and registration page*/
+
 .h-100{
   background-color:#D0D3D4;
 }
-  .user_card {
-      height: 400px;
-      width: 350px;
-      margin-top: auto;
-      margin-bottom: auto;
-      background: #CC701F;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      padding: 10px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 5px;
 
-    }
+/*Login and registration page*/
+.user_card {
+            height: 400px;
+            width: 350px;
+            margin-top: auto;
+            margin-bottom: auto;
+            background: #CC701F;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;
+          }
 
-  .brand_logo_container {
-      position: absolute;
-      height: 170px;
-      width: 170px;
-      top: -75px;
-      border-radius: 50%;
-      background: #60a3bc;
-      padding: 10px;
-      text-align: center;
-    }
-    .brand_logo {
-      height: 150px;
-      width: 150px;
-      border-radius: 50%;
-      border: 2px solid white;
-    }
-    .form_container {
+/*Sizing Logo container in login and registration page*/
+.brand_logo_container {
+                      position: absolute;
+                      height: 170px;
+                      width: 170px;
+                      top: -75px;
+                      border-radius: 50%;
+                      background: #60a3bc;
+                      padding: 10px;
+                      text-align: center;
+                    }
+
+/*Sizing logo in login and registration page*/
+.brand_logo {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            border: 2px solid white;
+            }
+
+.form_container {
       margin-top: 100px;
     }
-    .login_btn {
-      width: 100%;
-      background: #c0392b !important;
-      color: white !important;
-    }
-    .login_btn:focus {
-      box-shadow: none !important;
-      outline: 0px !important;
-    }
-    .login_container {
-      padding: 0 4rem;
-    }  
+
+.login_btn {
+            width: 100%;
+            background: #c0392b !important;
+            color: white !important;
+          }
+
+.login_btn:focus {
+                  box-shadow: none !important;
+                  outline: 0px !important;
+                }
+
+
+.login_container {
+                    padding: 0 4rem;
+                  }  
+
+
 h1 {
     color:#F7DC6F ;
-  }
+   }
 
 .display{
-  color:#CC701F;
-}
+        color:#CC701F;
+        }
 
 .col-lg-5{
-  border-style: solid;
-  border-width: thin;
-  border-color: #CC701F;
-  padding-left: 30px;
-  padding-right: 30px;
-  background-color:#D0D3D4;
-}
+          border-style: solid;
+          border-width: thin;
+          border-color: #CC701F;
+          padding-left: 30px;
+          padding-right: 30px;
+          background-color:#D0D3D4;
+        }
 
 .col-lg-7{
-  border-width: thin;
-  border-color: #CC701F;
-  border-top-style: solid;
-  border-left-style: solid;
-  border-bottom-style:solid;
-}
+          border-width: thin;
+          border-color: #CC701F;
+          border-top-style: solid;
+          border-left-style: solid;
+          border-bottom-style:solid;
+        }
 
 #places{
         margin: 10;
         height: 700px;
         overflow-y: scroll;
         padding-left: 10px;
-
       }
+
+/* Next Page button on apartments page*/
 #more{
       width: 100%;
       margin: 5px 0 0 0;
       }
-.fav-btn{
-      color: green;
-}
-.color-btn {
-  color:blue;
-}
 
+/*Bootstrap Cards component*/
 .card{
   width: 25rem;
   display:inline-block;
@@ -131,19 +142,22 @@ h1 {
 }
 
 .tab-content{
-  background-color:#D0D3D4;
-  }
-.tab-list{
-  border-width: thin;
-  border-color: #CC701F;
-}
-.card-header{
-  background-color:#CC701F;
-  color:white;
-  font-weight: 200;
-}
+            background-color:#D0D3D4;
+            }
 
+.tab-list{
+          border-width: thin;
+          border-color: #CC701F;
+        }
+
+/*Bootstrap Cards component*/
+.card-header{
+            background-color:#CC701F;
+            color:white;
+            font-weight: 200;
+          }
+
+/*navbar*/
 .bg-dark{
-    background-color: #111221 !important;
-}
-}
+         background-color: #111221 !important;
+        }
