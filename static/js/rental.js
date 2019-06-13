@@ -68,7 +68,7 @@ function geocodeAddress(geocoder, resultsMap) {
       let apartmentsList = document.getElementById('places');
       for (let i = 0, place; place = places[i]; i++) {
               let image = {
-              url:'/static/images/apt.png',
+              url:'/static/images/building.png',
               size: new google.maps.Size(100, 100),
               origin: new google.maps.Point(0, 0),
               anchor: new google.maps.Point(17, 34),
@@ -89,10 +89,10 @@ function geocodeAddress(geocoder, resultsMap) {
                 clicked */
               google.maps.event.addListener(marker,'click', function() {
                     infoWindow.setContent('<div>'
-                                          +'<i>'+'<h2 style="color:blue">'
-                                          +'Name: '+ this.title +'</h2>'
-                                          +'<h2 style="color:green">'
-                                          +'User ratings: ' + this.rating+'</h2>'
+                                          +'<i>'+'<h3 style="color:blue">'
+                                          +'Name: '+ this.title +'</h3>'
+                                          +'<h3 style="color:green">'
+                                          +'User ratings: ' + this.rating+'</h3>'
                                           +'</i>'+'</div>');
                         infoWindow.open(map, this);
                         });
@@ -113,7 +113,7 @@ function geocodeAddress(geocoder, resultsMap) {
               cardTitle.textContent = place.name; 
               let cardText=document.createElement('p');
               cardText.className='card-text';
-              cardText.textContent=`${place.name} has ${place.rating} rating. `;
+              cardText.textContent=`Rating : ${place.rating}`;
               let getInfo=document.createElement('a');
               getInfo.className='btn btn-outline-primary';
               getInfo.innerHTML='Get Info';

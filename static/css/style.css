@@ -21,13 +21,16 @@ html, body {
       }
 
 .jumbotron {
-  background-image: url("/static/images/city.jpg");
+  background-image: url("/static/images/image_2.jpg");
   background-size: cover;
-  padding-top: 20%; 
-  padding-bottom: 20%;
+  padding-top: 5%; 
+  padding-bottom: 35%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   /*-o-background-size: cover;*/
+}
+.h-100{
+  background-color:#D0D3D4;
 }
   .user_card {
       height: 400px;
@@ -76,16 +79,14 @@ html, body {
       outline: 0px !important;
     }
     .login_container {
-      padding: 0 2rem;
+      padding: 0 4rem;
     }  
 h1 {
-    color:white;
+    color:#F7DC6F ;
   }
+
 .display{
   color:#CC701F;
-}
-#home-text{
-  color:white;
 }
 
 .col-lg-5{
@@ -94,6 +95,7 @@ h1 {
   border-color: #CC701F;
   padding-left: 30px;
   padding-right: 30px;
+  background-color:#D0D3D4;
 }
 
 .col-lg-7{
@@ -128,8 +130,20 @@ h1 {
   margin:20px;
 }
 
+.tab-content{
+  background-color:#D0D3D4;
+  }
+.tab-list{
+  border-width: thin;
+  border-color: #CC701F;
+}
 .card-header{
   background-color:#CC701F;
   color:white;
   font-weight: 200;
+}
+
+.bg-dark{
+    background-color: #111221 !important;
+}
 }

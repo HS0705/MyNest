@@ -63,14 +63,12 @@ class App extends React.Component{
       );
   return (
     <div>
-      <h1>Information </h1>
       <MyTabs>
       <div label="Home">
         {apartmentItems}
       </div>
       <div label="Doctors"> 
              { doctorItems }
-
       </div>
       <div label="Stores">
               { storeItems }

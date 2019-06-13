@@ -20,28 +20,30 @@
           href="/static/css/style.css"
     >
 </head>
-<body>
+<body style="background-color:#D0D3D4;">
     <div id='display'>
-        <!-- Details about how thw application works -->
-        <h3 class="display">Welcome to My Nest application</h3>
-            <p class="display">About</p>
-            <div>This application is intended to help you decide what should be your next Nest.
-                All you have to do is enter the city where you want to move in and this app will find you the apartments in that city and all the related information. The data is restricted only for cities in USA. 
-            </div>
-        <p class="display"> How to use the application</p>
-        <ul class="list-styled">
-            <li> Register as new user</li>
-            <li>Log in with user credentials</li>
-            <li>Start typing the city name and once options are shown choose the city name click on Search button</li>
-            <li>Apartments are displayed on map as well as in the list panel. Scroll the list panel to see all the apartments</li>
-            <li>Click on Next page button to see more results for that city. Once all the results have been populated the Next page button is disabled</li>
-            <li>Mark the apartment  as favorite by clicking on Save button. Apartment Id marked as favorite are saved on the database</li>
-            <li>To get related information for any apartment click on the Get Info button</li>
-            <li>Information page has tabs that shows the respective data(Apartments, Doctors, Shopping, Restaurants and Schools)</li>
-            <li>Details button shows the Yelp page for that business</li>
-        </ul>
-        <button type="button" id="homeBtn" class="btn btn-primary">Home Page</button>
-    </div>
+        <!-- Details about how the application works -->
+        <div class="container" text-align="center">
+            <h3 class="display">Welcome to My Nest application</h3>
+                <p class="display">About</p>
+                <div>This application is intended to help you decide what should be your next Nest.
+                    All you have to do is enter the city where you want to move in and this app will find you the apartments in that city and all the related information. The data is restricted only for cities in USA. 
+                </div>
+            <p class="display"> How to use the application</p>
+            <ul class="list-styled">
+                <li> Register as new user</li>
+                <li>Log in with user credentials</li>
+                <li>Start typing the city name and once options are shown choose the city name click on Search button</li>
+                <li>Apartments are displayed on map as well as in the list panel. Scroll the list panel to see all the apartments</li>
+                <li>Click on Next page button to see more results for that city. Once all the results have been populated the Next page button is disabled</li>
+                <li>Mark the apartment  as favorite by clicking on Save button. Apartment Id marked as favorite are saved on the database</li>
+                <li>To get related information for any apartment click on the Get Info button</li>
+                <li>Information page has tabs that shows the respective data(Apartments, Doctors, Shopping, Restaurants and Schools)</li>
+                <li>Details button shows the Yelp page for that business</li>
+            </ul>
+            <button type="button" id="homeBtn" class="btn btn-primary">Home Page</button>
+        </div>
+    </div>    
     <script>
         /* Get back tot he Home Page */
         $(document).ready(function() {

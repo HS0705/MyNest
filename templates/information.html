@@ -10,7 +10,7 @@
     <link rel="stylesheet"
           href="/static/css/Tabs.css"
     >
-    <p id="apartment-address">Detailed Information for {{ apartment_address }}</p>
+    <h2 id="apartment-address">{{ apartment_address }}</h2>
     <div id="root"></div>
     <script>
         let apartmentInfo={{ apartments | tojson | safe }};

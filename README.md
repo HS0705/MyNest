@@ -12,6 +12,7 @@ Steps:
 •   To get related information for any apartment click on the Get Info button
 •   Information page has tabs that shows the respective data(Apartments, Doctors, Shopping, Restaurants and Schools)
 •   Details button shows the Yelp page for that business.
+
 Prerequisites:
 
 •   Python3  already installed.
