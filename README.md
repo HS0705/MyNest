@@ -1,11 +1,11 @@
-#MyNest 
+# MyNest 
 
 This application is intended to help you decide what should be your next Nest.
 All you have to do is enter the city where you want to move in and this app will 
 find you the apartments in that city and all the related information. The data 
 is restricted only for cities in USA.
 
-#Steps:
+### Steps:
 
 *   New users should Register
 *   Users should Log in to use the application
@@ -22,18 +22,18 @@ is restricted only for cities in USA.
     Shopping,Restaurants and Schools)
 *   Details button shows the Yelp page for that business.
 
-#Prerequisites:
+### Prerequisites:
 
 *   Python3  already installed.
-*   Create  database using psql createdb databasename command
-*   Run python3 model.py 
-*   Run db.create_all() command once you run the model.py
+*   Create  database using `psql createdb databasename` command
+*   Run `python3 model.py` 
+*   Run `db.create_all()` command once you run the model.py
 *   Requires all the mentioned dependencies in requirements.txt 
-*   Google Maps API key and Yelp API key to run this project.
+*   Google Maps `API key` and `Yelp API` key to run this project.
 
-#Installation:
+### Installation:
 
-Run  pip3 install -r requirements.txt in command prompt.
+Run  `pip3 install -r requirements.txt` in command prompt.
 
 
 
