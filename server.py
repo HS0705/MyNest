@@ -79,8 +79,7 @@ def logout():
     del session["user_id"]
     flash("Logged Out.")
     return redirect("/")
-
-
+    
 @app.route('/search')
 def click():
     """Renders apartments page """
